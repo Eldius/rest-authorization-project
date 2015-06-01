@@ -24,7 +24,8 @@
     <modules>
         <module>rest-brutauth</module>
     <module>rest-authorization</module>
-  </modules>
+        <module>rest-authorization-jparepository</module>
+    </modules>
 
     <dependencies>
         <dependency>
