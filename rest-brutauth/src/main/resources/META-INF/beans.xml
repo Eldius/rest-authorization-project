@@ -5,8 +5,8 @@
        bean-discovery-mode="all">
 
     <interceptors>
-        <class>net.eldiosantos.rest.poc.rest.auth.interceptor.SimpleBrutauthRuleInterceptor</class>
-        <class>net.eldiosantos.rest.poc.rest.auth.interceptor.CustomBrutauthRuleInterceptor</class>
+        <class>net.eldiosantos.brutauth.interceptor.SimpleBrutauthRuleInterceptor</class>
+        <class>net.eldiosantos.brutauth.interceptor.CustomBrutauthRuleInterceptor</class>
     </interceptors>
 
 </beans>
