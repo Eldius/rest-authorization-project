@@ -1,6 +1,8 @@
 package net.eldiosantos.authorization.model.auth;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.joda.time.DateTime;
+import org.joda.time.Period;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,6 +14,21 @@ import java.util.Date;
 @Entity
 public class UserSessionAuth implements Serializable {
 
+    public static enum ExpirationType {
+        SHORT_TERM(Period.minutes(15))
+        , LONG_TERM(Period.years(1));
+
+        private final Period period;
+
+        ExpirationType(Period period) {
+            this.period = period;
+        }
+
+        public Period period() {
+            return period;
+        }
+    }
+
     @Id
     private String token;
 
@@ -19,7 +36,9 @@ public class UserSessionAuth implements Serializable {
     private User user;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date lastAccess;
+    private Date validUntil;
+
+    private ExpirationType expirationTime;
 
     public String getToken() {
         return token;
@@ -39,17 +58,40 @@ public class UserSessionAuth implements Serializable {
         return this;
     }
 
+    public DateTime getValidUntil() {
+        return new DateTime(validUntil);
+    }
+
+    public UserSessionAuth setValidUntil(DateTime validUntil) {
+        this.validUntil = validUntil.toDate();
+        return this;
+    }
+
+    public UserSessionAuth setValidUntil(Date validUntil) {
+        this.validUntil = validUntil;
+        return this;
+    }
+
+    public ExpirationType getExpirationTime() {
+        return expirationTime;
+    }
+
+    public UserSessionAuth setExpirationTime(ExpirationType expirationTime) {
+        this.expirationTime = expirationTime;
+        return this;
+    }
+
+    public UserSessionAuth renew() {
+        this.setValidUntil(DateTime.now().plus(getExpirationTime().period()));
+        return this;
+    }
+
+    public Boolean isValid() {
+        return this.getValidUntil().isAfter(DateTime.now());
+    }
+
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
-    }
-
-    public Date getLastAccess() {
-        return lastAccess;
-    }
-
-    public UserSessionAuth setLastAccess(Date lastAccess) {
-        this.lastAccess = lastAccess;
-        return this;
     }
 }

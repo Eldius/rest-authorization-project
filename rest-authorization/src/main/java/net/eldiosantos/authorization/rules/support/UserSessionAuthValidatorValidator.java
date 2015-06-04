@@ -35,8 +35,8 @@ public class UserSessionAuthValidatorValidator {
 
         if(session == null) {
             return false;
-        } else if(session.getLastAccess().after(calendar.getTime())) {
-            session.setLastAccess(new Date());
+        } else if(session.isValid()) {
+            session.renew();
             return true;
         }
         return null;

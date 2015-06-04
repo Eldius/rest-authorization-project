@@ -5,7 +5,6 @@ import net.eldiosantos.authorization.model.auth.User;
 import net.eldiosantos.authorization.model.auth.UserSessionAuth;
 
 import javax.inject.Inject;
-import java.util.Date;
 
 /**
  * Created by Eldius on 16/05/2015.
@@ -20,6 +19,7 @@ public class TokenGenerator {
 
         return new UserSessionAuth().setToken(token)
                 .setUser(user)
-                .setLastAccess(new Date());
+                .setExpirationTime(UserSessionAuth.ExpirationType.SHORT_TERM)
+                .renew();
     }
 }

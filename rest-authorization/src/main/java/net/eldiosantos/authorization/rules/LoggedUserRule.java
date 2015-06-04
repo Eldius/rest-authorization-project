@@ -7,7 +7,6 @@ import net.eldiosantos.brutauth.rules.SimpleBrutauthRule;
 
 import javax.inject.Inject;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by Eldius on 16/05/2015.
@@ -28,8 +27,8 @@ public class LoggedUserRule implements SimpleBrutauthRule {
         calendar.add(Calendar.MINUTE, -15);
         if((session == null) || (session.getUser() == null)) {
             return false;
-        } else if(session.getLastAccess().after(calendar.getTime())) {
-            session.setLastAccess(new Date());
+        } else if(session.isValid()) {
+            session.renew();
             userSessionAuthRepository.saveOrUpdate(session);
             return true;
         }
