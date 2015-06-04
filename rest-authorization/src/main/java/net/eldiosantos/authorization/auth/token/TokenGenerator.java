@@ -15,11 +15,19 @@ public class TokenGenerator {
     private HASHProvider hashProvider;
 
     public UserSessionAuth generate(final User user) throws Exception {
+        return createUserSessionAuth(user, UserSessionAuth.ExpirationType.SHORT_TERM);
+    }
+
+    public UserSessionAuth generateLongterm(final User user) throws Exception {
+        return createUserSessionAuth(user, UserSessionAuth.ExpirationType.LONG_TERM);
+    }
+
+    private UserSessionAuth createUserSessionAuth(User user, UserSessionAuth.ExpirationType expirationType) throws Exception {
         final String token = hashProvider.stringHash(user.getCredentials().toString() + System.currentTimeMillis());
 
         return new UserSessionAuth().setToken(token)
                 .setUser(user)
-                .setExpirationTime(UserSessionAuth.ExpirationType.SHORT_TERM)
+                .setExpirationTime(expirationType)
                 .renew();
     }
 }
