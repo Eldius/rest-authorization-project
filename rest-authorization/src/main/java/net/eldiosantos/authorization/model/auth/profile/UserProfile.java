@@ -1,17 +1,16 @@
 package net.eldiosantos.authorization.model.auth.profile;
 
+import net.eldiosantos.authorization.model.auth.User;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
 /**
  * Created by eldio.junior on 22/05/2015.
  */
 @MappedSuperclass
-public abstract class UserProfile {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class UserProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

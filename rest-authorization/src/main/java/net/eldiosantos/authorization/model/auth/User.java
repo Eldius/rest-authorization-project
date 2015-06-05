@@ -1,5 +1,6 @@
 package net.eldiosantos.authorization.model.auth;
 
+import net.eldiosantos.authorization.model.auth.profile.UserProfile;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
@@ -24,6 +25,10 @@ public class User implements Serializable {
 
     @ManyToOne
     private UserRole role;
+
+    @OneToOne(orphanRemoval = true)
+    @PrimaryKeyJoinColumn()
+    private UserProfile profile;
 
     public Long getId() {
         return id;
@@ -81,6 +86,15 @@ public class User implements Serializable {
         setPass(credentials.getPass())
                 .setUser(credentials.getUser())
                 .setSalt(credentials.getSalt());
+        return this;
+    }
+
+    public UserProfile getProfile() {
+        return profile;
+    }
+
+    public User setProfile(UserProfile profile) {
+        this.profile = profile;
         return this;
     }
 
