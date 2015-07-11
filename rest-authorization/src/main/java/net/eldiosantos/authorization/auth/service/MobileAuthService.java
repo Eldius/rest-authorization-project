@@ -36,7 +36,7 @@ public class MobileAuthService {
     @Inject
     private TokenHeaderExtractor tokenHeaderExtractor;
 
-    public String login(final CredentialsVO loginData) throws Exception {
+    public UserSessionAuth login(final CredentialsVO loginData) throws Exception {
         try {
             final User user = userRepository.findByLogin(loginData.getUser());
             final Credentials credentials = builder.start()
@@ -47,7 +47,7 @@ public class MobileAuthService {
             if (user.getCredentials().equals(credentials)) {
                 final UserSessionAuth auth = tokenGenerator.generateLongterm(user);
                 sessionAuthRepository.saveOrUpdate(auth);
-                return auth.getToken();
+                return auth;
             }
         }catch (Exception e) {
             logger.warn("Error while trying to authenticate user", e);
@@ -56,6 +56,6 @@ public class MobileAuthService {
     }
 
     public void logout() {
-        sessionAuthRepository.delete(sessionAuthRepository.getByPk(tokenHeaderExtractor.extract()));
+        sessionAuthRepository.update(sessionAuthRepository.getByPk(tokenHeaderExtractor.extract()).invalidate());
     }
 }

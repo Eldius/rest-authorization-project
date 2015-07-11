@@ -90,6 +90,11 @@ public class UserSessionAuth implements Serializable {
         return this.getValidUntil().isAfter(DateTime.now());
     }
 
+    public UserSessionAuth invalidate() {
+        this.setValidUntil(new DateTime(System.currentTimeMillis() - 1));
+        return this;
+    }
+
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
