@@ -4,7 +4,7 @@
 
     <groupId>net.eldiosantos.brutauth</groupId>
     <artifactId>rest-authorization-project</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -19,7 +19,7 @@
 
     <scm>
         <connection>scm:git:https://Eldius@bitbucket.org/Eldius/rest-authorization-project.git</connection>
-      <tag>rest-authorization-project-0.0.4</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <modules>
