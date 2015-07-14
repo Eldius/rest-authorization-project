@@ -24,14 +24,13 @@ public class LoggedUserRule implements SimpleBrutauthRule {
 
         final UserSessionAuth session = userSessionAuthRepository.getByPk(tokenHeaderExtractor.extract());
         final Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.MINUTE, -15);
         if((session == null) || (session.getUser() == null)) {
-            return false;
+            return Boolean.FALSE;
         } else if(session.isValid()) {
             session.renew();
             userSessionAuthRepository.saveOrUpdate(session);
-            return true;
+            return Boolean.TRUE;
         }
-        return false;
+        return Boolean.FALSE;
     }
 }
