@@ -1,4 +1,4 @@
-# rest-authorization #
+# rest-authorization-project #
 
 A set of tools to help provide authentication and access control
 to REST (JAX-RS based) applications.
@@ -96,7 +96,16 @@ And
             }
         }
 
-* **Rule**
+### rest-authorization usage ###
+
+It's usage is basically restricted to the package *net.eldiosantos.authorization.service*. 
+There you can find a class to create the user (login and password), to login and to logout.
+
+* **LoggedUserRule**
+
+The *LoggedUserRule* is a SimpleBrutauthRule implementation that validate the user using the request header 
+*Authorization* using the format 'token TOKEN_GENERATED_AT_LOGIN' (started by the String 'token' whith a 
+blank space and then the token generated at login).
 
 
 ### Add as a Maven dependency ###
@@ -140,3 +149,7 @@ And
             </repositories>
 
 
+
+
+## TODO LIST ##
+* Add resources to change user credentials;
