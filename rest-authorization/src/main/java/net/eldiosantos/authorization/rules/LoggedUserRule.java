@@ -19,6 +19,18 @@ public class LoggedUserRule implements SimpleBrutauthRule {
     @Inject
     private TokenHeaderExtractor tokenHeaderExtractor;
 
+    /**
+     * Just for the CDI eyes.
+     */
+    @Deprecated
+    public LoggedUserRule() {
+    }
+
+    public LoggedUserRule(UserSessionAuthRepository userSessionAuthRepository, TokenHeaderExtractor tokenHeaderExtractor) {
+        this.userSessionAuthRepository = userSessionAuthRepository;
+        this.tokenHeaderExtractor = tokenHeaderExtractor;
+    }
+
     @Override
     public Boolean canAccess(Long accessLevel) {
 
