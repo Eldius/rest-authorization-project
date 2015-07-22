@@ -1,8 +1,8 @@
 package net.eldiosantos.authorization.repository.hibernate;
 
-import net.eldiosantos.authorization.model.auth.User;
-import net.eldiosantos.authorization.repository.UserRepository;
+import net.eldiosantos.brutauth.model.auth.User;
 import net.eldiosantos.authorization.repository.hibernate.base.BaseRepository;
+import net.eldiosantos.brutauth.model.repository.UserRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;

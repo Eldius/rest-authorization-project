@@ -2,7 +2,7 @@ package net.eldiosantos.authorization.service;
 
 import net.eldiosantos.authorization.auth.service.AuthService;
 import net.eldiosantos.authorization.auth.service.MobileAuthService;
-import net.eldiosantos.authorization.model.auth.UserSessionAuth;
+import net.eldiosantos.brutauth.model.auth.UserSessionAuth;
 import net.eldiosantos.authorization.vo.CredentialsVO;
 
 import javax.inject.Inject;

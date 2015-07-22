@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>net.eldiosantos.brutauth</groupId>
-            <artifactId>rest-authorization</artifactId>
+            <artifactId>rest-authorization-model</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

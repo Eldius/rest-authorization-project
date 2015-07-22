@@ -1,6 +1,6 @@
-package net.eldiosantos.authorization.model.auth;
+package net.eldiosantos.brutauth.model.auth;
 
-import net.eldiosantos.authorization.model.auth.profile.UserProfile;
+import net.eldiosantos.brutauth.model.auth.profile.UserProfile;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
@@ -29,6 +29,22 @@ public class User implements Serializable {
     @OneToOne(orphanRemoval = true)
     @PrimaryKeyJoinColumn()
     private UserProfile profile;
+
+    public User() {
+    }
+
+    public User(final Credentials credentials) {
+        this.setCredentials(credentials);
+    }
+
+    public User(final Long id, final String user, final String pass, final String salt, final UserRole role, final UserProfile profile) {
+        this.id = id;
+        this.user = user;
+        this.pass = pass;
+        this.salt = salt;
+        this.role = role;
+        this.profile = profile;
+    }
 
     public Long getId() {
         return id;

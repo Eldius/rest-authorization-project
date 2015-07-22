@@ -1,4 +1,4 @@
-package net.eldiosantos.authorization.model.auth;
+package net.eldiosantos.brutauth.model.auth;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 

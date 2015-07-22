@@ -1,4 +1,4 @@
-package net.eldiosantos.authorization.repository.interfaces;
+package net.eldiosantos.brutauth.model.repository.interfaces;
 
 import java.io.Serializable;
 

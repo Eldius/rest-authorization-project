@@ -4,7 +4,7 @@ import net.eldiosantos.authorization.auth.builder.PassCredentialsBuilder;
 import net.eldiosantos.authorization.auth.builder.SaltCredentialsBuilder;
 import net.eldiosantos.authorization.auth.builder.UserCredentialsBuilder;
 import net.eldiosantos.authorization.auth.hash.HASHProvider;
-import net.eldiosantos.authorization.model.auth.Credentials;
+import net.eldiosantos.brutauth.model.auth.Credentials;
 import org.apache.commons.codec.binary.Hex;
 
 import javax.inject.Inject;

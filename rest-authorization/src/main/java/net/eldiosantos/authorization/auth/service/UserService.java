@@ -1,12 +1,12 @@
 package net.eldiosantos.authorization.auth.service;
 
 import net.eldiosantos.authorization.auth.builder.CredentialsBuilder;
-import net.eldiosantos.authorization.model.auth.Credentials;
-import net.eldiosantos.authorization.model.auth.User;
-import net.eldiosantos.authorization.repository.UserRepository;
-import net.eldiosantos.authorization.repository.UserRoleRepository;
+import net.eldiosantos.brutauth.model.auth.Credentials;
+import net.eldiosantos.brutauth.model.auth.User;
 import net.eldiosantos.authorization.vo.CredentialsVO;
 import net.eldiosantos.authorization.vo.UserVO;
+import net.eldiosantos.brutauth.model.repository.UserRepository;
+import net.eldiosantos.brutauth.model.repository.UserRoleRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 

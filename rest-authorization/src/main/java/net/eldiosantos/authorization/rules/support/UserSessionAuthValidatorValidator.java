@@ -1,12 +1,11 @@
 package net.eldiosantos.authorization.rules.support;
 
-import net.eldiosantos.authorization.model.auth.User;
-import net.eldiosantos.authorization.model.auth.UserSessionAuth;
-import net.eldiosantos.authorization.repository.UserSessionAuthRepository;
+import net.eldiosantos.brutauth.model.auth.User;
+import net.eldiosantos.brutauth.model.auth.UserSessionAuth;
+import net.eldiosantos.brutauth.model.repository.UserSessionAuthRepository;
 
 import javax.inject.Inject;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by SYSTEM on 27/05/2015.

@@ -1,6 +1,6 @@
 package net.eldiosantos.authorization.vo;
 
-import net.eldiosantos.authorization.model.auth.UserRole;
+import net.eldiosantos.brutauth.model.auth.UserRole;
 
 import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;

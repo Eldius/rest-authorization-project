@@ -5,4 +5,4 @@
  * @author Eldius
  *
  */
-package net.eldiosantos.authorization.repository.interfaces;
+package net.eldiosantos.brutauth.model.repository.interfaces;

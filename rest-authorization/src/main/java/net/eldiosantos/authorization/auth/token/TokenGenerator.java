@@ -1,8 +1,8 @@
 package net.eldiosantos.authorization.auth.token;
 
 import net.eldiosantos.authorization.auth.hash.HASHProvider;
-import net.eldiosantos.authorization.model.auth.User;
-import net.eldiosantos.authorization.model.auth.UserSessionAuth;
+import net.eldiosantos.brutauth.model.auth.User;
+import net.eldiosantos.brutauth.model.auth.UserSessionAuth;
 
 import javax.inject.Inject;
 
@@ -13,6 +13,17 @@ public class TokenGenerator {
 
     @Inject
     private HASHProvider hashProvider;
+
+    /**
+     * Deprecated. It's just for CDI.
+     */
+    @Deprecated
+    public TokenGenerator() {
+    }
+
+    public TokenGenerator(HASHProvider hashProvider) {
+        this.hashProvider = hashProvider;
+    }
 
     public UserSessionAuth generate(final User user) throws Exception {
         return createUserSessionAuth(user, UserSessionAuth.ExpirationType.SHORT_TERM);

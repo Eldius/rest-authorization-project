@@ -1,8 +1,8 @@
-package net.eldiosantos.authorization.repository;
+package net.eldiosantos.brutauth.model.repository;
 
 
-import net.eldiosantos.authorization.model.auth.User;
-import net.eldiosantos.authorization.repository.interfaces.Repository;
+import net.eldiosantos.brutauth.model.auth.User;
+import net.eldiosantos.brutauth.model.repository.interfaces.Repository;
 
 import java.util.List;
 

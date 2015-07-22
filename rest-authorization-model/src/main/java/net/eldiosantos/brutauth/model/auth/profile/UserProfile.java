@@ -1,6 +1,5 @@
-package net.eldiosantos.authorization.model.auth.profile;
+package net.eldiosantos.brutauth.model.auth.profile;
 
-import net.eldiosantos.authorization.model.auth.User;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;

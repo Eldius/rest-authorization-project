@@ -2,13 +2,13 @@ package net.eldiosantos.authorization.auth.service;
 
 import net.eldiosantos.authorization.auth.builder.CredentialsBuilder;
 import net.eldiosantos.authorization.auth.token.TokenGenerator;
-import net.eldiosantos.authorization.model.auth.Credentials;
-import net.eldiosantos.authorization.model.auth.User;
-import net.eldiosantos.authorization.model.auth.UserSessionAuth;
-import net.eldiosantos.authorization.repository.UserRepository;
-import net.eldiosantos.authorization.repository.UserSessionAuthRepository;
+import net.eldiosantos.brutauth.model.auth.Credentials;
+import net.eldiosantos.brutauth.model.auth.User;
+import net.eldiosantos.brutauth.model.auth.UserSessionAuth;
 import net.eldiosantos.authorization.rules.support.TokenHeaderExtractor;
 import net.eldiosantos.authorization.vo.CredentialsVO;
+import net.eldiosantos.brutauth.model.repository.UserRepository;
+import net.eldiosantos.brutauth.model.repository.UserSessionAuthRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
