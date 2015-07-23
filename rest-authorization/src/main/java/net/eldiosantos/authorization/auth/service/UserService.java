@@ -27,6 +27,19 @@ public class UserService {
     @Inject
     private ModelMapper modelMapper;
 
+    /**
+     * Just for CDI.
+     */
+    @Deprecated
+    public UserService() {
+    }
+
+    public UserService(UserRepository userRepository, CredentialsBuilder credentialsBuilder, ModelMapper modelMapper) {
+        this.userRepository = userRepository;
+        this.credentialsBuilder = credentialsBuilder;
+        this.modelMapper = modelMapper;
+    }
+
     public UserVO create(final CredentialsVO cred) throws Exception {
         final Credentials credentials = credentialsBuilder.start()
                 .user(cred.getUser())
