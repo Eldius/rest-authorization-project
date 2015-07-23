@@ -13,8 +13,24 @@ public class TokenHeaderExtractor {
     @Context
     private HttpServletRequest request;
 
+    /**
+     * Just for CDI eyes.
+     */
+    @Deprecated
+    public TokenHeaderExtractor() {
+
+    }
+
+    public TokenHeaderExtractor(HttpServletRequest request) {
+        this.request = request;
+    }
+
+
     public String extract() {
         final String header = request.getHeader(AUTHORIZATION_HEADER);
-        return header!=null?header.replace("token ", ""):"";
+        if (header == null || !header.startsWith("token ")) {
+            throw new IllegalStateException("User not authenticated.");
+        }
+        return header.replace("token ", "");
     }
 }
