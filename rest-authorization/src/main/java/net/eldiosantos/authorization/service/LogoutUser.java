@@ -12,6 +12,17 @@ public class LogoutUser {
     @Inject
     private AuthService authService;
 
+    /**
+     * Just for CDI do not complain.
+     */
+    @Deprecated
+    public LogoutUser() {
+    }
+
+    public LogoutUser(AuthService authService) {
+        this.authService = authService;
+    }
+
     public void logout() {
         authService.logout();
     }

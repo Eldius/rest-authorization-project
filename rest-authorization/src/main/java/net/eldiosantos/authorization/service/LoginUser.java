@@ -18,6 +18,18 @@ public class LoginUser {
     @Inject
     private MobileAuthService mobileAuthService;
 
+    /**
+     * Just to compatibility with CDI.
+     */
+    @Deprecated
+    public LoginUser() {
+    }
+
+    public LoginUser(AuthService authService, MobileAuthService mobileAuthService) {
+        this.authService = authService;
+        this.mobileAuthService = mobileAuthService;
+    }
+
     public UserSessionAuth authenticate(final CredentialsVO credentials, final UserSessionAuth.ExpirationType expirationType) throws Exception {
         return UserSessionAuth.ExpirationType.SHORT_TERM.equals(expirationType)?
                 authService.login(credentials):

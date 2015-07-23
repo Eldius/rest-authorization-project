@@ -64,4 +64,14 @@ public class CreateUserTest {
     public void testCreateWithNullPassword() throws Exception {
         final User frank = createUser.create(new CredentialsVO("invalidUser", null));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateWithEmptyUsername() throws Exception {
+        final User frank = createUser.create(new CredentialsVO("", "strongP@ass001"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateWithEmptyPassword() throws Exception {
+        final User frank = createUser.create(new CredentialsVO("invalidUser", ""));
+    }
 }
