@@ -15,7 +15,20 @@ public class UserSessionAuthValidatorValidator {
     @Inject
     private UserSessionAuthExtractor userSessionAuthExtractor;
 
+    @Inject
     private UserSessionAuthRepository userSessionAuthRepository;
+
+    /**
+     * Just for CDI
+     */
+    @Deprecated
+    public UserSessionAuthValidatorValidator() {
+    }
+
+    public UserSessionAuthValidatorValidator(UserSessionAuthExtractor userSessionAuthExtractor, UserSessionAuthRepository userSessionAuthRepository) {
+        this.userSessionAuthExtractor = userSessionAuthExtractor;
+        this.userSessionAuthRepository = userSessionAuthRepository;
+    }
 
     public Boolean validate() {
         final UserSessionAuth session = userSessionAuthExtractor.extract();
@@ -33,12 +46,12 @@ public class UserSessionAuthValidatorValidator {
         calendar.add(Calendar.MINUTE, -15);
 
         if(session == null) {
-            return false;
+            return Boolean.FALSE;
         } else if(session.isValid()) {
             session.renew();
-            return true;
+            return Boolean.TRUE;
         }
-        return null;
+        return Boolean.FALSE;
     }
 
     public User extractUser() {
