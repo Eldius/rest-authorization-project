@@ -16,6 +16,18 @@ public class UserSessionAuthExtractor {
     @Inject
     private UserSessionAuthRepository userSessionAuthRepository;
 
+    /**
+     * Just for CDI
+     */
+    @Deprecated
+    public UserSessionAuthExtractor() {
+    }
+
+    public UserSessionAuthExtractor(TokenHeaderExtractor tokenHeaderExtractor, UserSessionAuthRepository userSessionAuthRepository) {
+        this.tokenHeaderExtractor = tokenHeaderExtractor;
+        this.userSessionAuthRepository = userSessionAuthRepository;
+    }
+
     public UserSessionAuth extract() {
         return userSessionAuthRepository.getByPk(tokenHeaderExtractor.extract());
     }
