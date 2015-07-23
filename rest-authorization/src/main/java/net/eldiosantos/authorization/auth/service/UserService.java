@@ -6,7 +6,6 @@ import net.eldiosantos.brutauth.model.auth.User;
 import net.eldiosantos.authorization.vo.CredentialsVO;
 import net.eldiosantos.authorization.vo.UserVO;
 import net.eldiosantos.brutauth.model.repository.UserRepository;
-import net.eldiosantos.brutauth.model.repository.UserRoleRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 
@@ -23,9 +22,6 @@ public class UserService {
     private UserRepository userRepository;
 
     @Inject
-    private UserRoleRepository roleRepository;
-
-    @Inject
     private CredentialsBuilder credentialsBuilder;
 
     @Inject
@@ -37,8 +33,7 @@ public class UserService {
                 .generateSalt()
                 .pass(cred.getPass());
         final User user = new User()
-                .setCredentials(credentials)
-                .setRole(roleRepository.getByPk(cred.getRoleId()));
+                .setCredentials(credentials);
         userRepository.saveOrUpdate(user);
 
         return modelMapper.map(user, UserVO.class);

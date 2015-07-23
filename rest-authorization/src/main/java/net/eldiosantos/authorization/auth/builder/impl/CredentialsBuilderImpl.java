@@ -27,6 +27,9 @@ public class CredentialsBuilderImpl implements PassCredentialsBuilder, SaltCrede
 
     @Override
     public Credentials pass(String pass) throws Exception {
+        if(pass == null || pass.isEmpty()) {
+            throw new IllegalArgumentException("The password could not be null");
+        }
         return credentials.setPass(hashProvider.stringHash(pass, credentials.getSalt()));
     }
 
@@ -48,6 +51,9 @@ public class CredentialsBuilderImpl implements PassCredentialsBuilder, SaltCrede
 
     @Override
     public SaltCredentialsBuilder user(final String user) {
+        if(user == null || user.isEmpty()) {
+            throw new IllegalArgumentException("The username could not be null");
+        }
         credentials.setUser(user);
         return this;
     }

@@ -84,7 +84,7 @@
         <dependency>
             <groupId>org.jglue.cdi-unit</groupId>
             <artifactId>cdi-unit</artifactId>
-            <version>3.1.2</version>
+            <version>3.1.3</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.jboss.weld.se</groupId>
@@ -127,6 +127,12 @@
             <groupId>org.jboss</groupId>
             <artifactId>jandex</artifactId>
             <version>1.2.2.Final</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.3.175</version>
             <scope>test</scope>
         </dependency>
         <!-- test dependencies -->

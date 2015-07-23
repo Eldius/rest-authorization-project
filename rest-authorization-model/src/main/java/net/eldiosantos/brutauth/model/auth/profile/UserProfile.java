@@ -7,7 +7,7 @@ import javax.persistence.*;
 /**
  * Created by eldio.junior on 22/05/2015.
  */
-@MappedSuperclass
+@Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class UserProfile {
 

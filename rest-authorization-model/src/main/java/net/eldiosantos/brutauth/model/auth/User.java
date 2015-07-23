@@ -23,9 +23,6 @@ public class User implements Serializable {
     private String pass;
     private String salt;
 
-    @ManyToOne
-    private UserRole role;
-
     @OneToOne(orphanRemoval = true)
     @PrimaryKeyJoinColumn()
     private UserProfile profile;
@@ -37,12 +34,11 @@ public class User implements Serializable {
         this.setCredentials(credentials);
     }
 
-    public User(final Long id, final String user, final String pass, final String salt, final UserRole role, final UserProfile profile) {
+    public User(final Long id, final String user, final String pass, final String salt, final UserProfile profile) {
         this.id = id;
         this.user = user;
         this.pass = pass;
         this.salt = salt;
-        this.role = role;
         this.profile = profile;
     }
 
@@ -70,15 +66,6 @@ public class User implements Serializable {
 
     public User setPass(String pass) {
         this.pass = pass;
-        return this;
-    }
-
-    public UserRole getRole() {
-        return role;
-    }
-
-    public User setRole(UserRole role) {
-        this.role = role;
         return this;
     }
 

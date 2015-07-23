@@ -1,6 +1,6 @@
 package net.eldiosantos.authorization.vo;
 
-import net.eldiosantos.brutauth.model.auth.UserRole;
+import net.eldiosantos.brutauth.model.auth.profile.UserProfile;
 
 import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
@@ -10,12 +10,19 @@ import java.io.Serializable;
  */
 public class UserVO implements Serializable {
     private Long id;
-    private String profileName;
-    private String profileEmail;
 
     private String user;
 
-    private UserRole role;
+    private UserProfile role;
+
+    public UserVO() {
+    }
+
+    public UserVO(Long id, String user, UserProfile role) {
+        this.id = id;
+        this.user = user;
+        this.role = role;
+    }
 
     public Long getId() {
         return id;
@@ -26,21 +33,12 @@ public class UserVO implements Serializable {
         return this;
     }
 
-    public String getProfileName() {
-        return profileName;
+    public UserProfile getRole() {
+        return role;
     }
 
-    public UserVO setprofileName(String profileName) {
-        this.profileName = profileName;
-        return this;
-    }
-
-    public String getProfileEmail() {
-        return profileEmail;
-    }
-
-    public UserVO setProfileEmail(String profileEmail) {
-        this.profileEmail = profileEmail;
+    public UserVO setRole(UserProfile role) {
+        this.role = role;
         return this;
     }
 
@@ -53,35 +51,4 @@ public class UserVO implements Serializable {
         return this;
     }
 
-    public String getRoleDisplayName() {
-        return getRole().getDisplayName();
-    }
-
-    public Long getRoleAccess() {
-        return getRole().getAccess();
-    }
-
-    public UserVO setRoleAccess(Long access) {
-        getRole().setAccess(access);
-        return this;
-    }
-
-    public UserVO setRoleDisplayName(String displayName) {
-        getRole().setDisplayName(displayName);
-        return this;
-    }
-
-    public Long getRoleId() {
-        return getRole().getId();
-    }
-
-    @XmlTransient
-    public UserRole getRole() {
-        return role!=null?role:new UserRole();
-    }
-
-    public UserVO setRole(UserRole role) {
-        this.role = role;
-        return this;
-    }
 }
