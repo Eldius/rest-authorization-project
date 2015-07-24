@@ -4,7 +4,7 @@
     <parent>
         <groupId>net.eldiosantos.brutauth</groupId>
         <artifactId>rest-authorization-project</artifactId>
-        <version>0.0.7-SNAPSHOT</version>
+        <version>0.0.7</version>
     </parent>
 
     <artifactId>rest-authorization</artifactId>
