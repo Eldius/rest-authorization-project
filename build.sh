@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker exec rest-auth-maven
+docker run --name rest-auth rest-auth-maven
