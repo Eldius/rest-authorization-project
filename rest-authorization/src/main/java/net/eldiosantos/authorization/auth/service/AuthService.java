@@ -36,6 +36,21 @@ public class AuthService {
     @Inject
     private TokenHeaderExtractor tokenHeaderExtractor;
 
+    /**
+     * Just for CDI.
+     */
+    @Deprecated
+    public AuthService() {
+    }
+
+    public AuthService(TokenGenerator tokenGenerator, UserSessionAuthRepository sessionAuthRepository, CredentialsBuilder builder, UserRepository userRepository, TokenHeaderExtractor tokenHeaderExtractor) {
+        this.tokenGenerator = tokenGenerator;
+        this.sessionAuthRepository = sessionAuthRepository;
+        this.builder = builder;
+        this.userRepository = userRepository;
+        this.tokenHeaderExtractor = tokenHeaderExtractor;
+    }
+
     public UserSessionAuth login(final CredentialsVO loginData) throws Exception {
         try {
             final User user = userRepository.findByLogin(loginData.getUser());
