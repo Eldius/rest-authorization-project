@@ -45,7 +45,7 @@ public class CustomBrutauthRuleInterceptor {
     private HandlerExtractor handlerExtractor;
 
     @AroundInvoke
-    public Object manageTransaction(InvocationContext ctx) throws Exception {
+    public Object applyRules(InvocationContext ctx) throws Exception {
 
         CustomBrutauthRules rule = annotationExtractor.getAnnotation(ctx, CustomBrutauthRules.class);
 

@@ -1,6 +1,5 @@
 package net.eldiosantos.brutauth.interceptor;
 
-import net.eldiosantos.brutauth.interceptor.SimpleBrutauthRuleInterceptor;
 import net.eldiosantos.brutauth.support.handler.ErrorGeneratorRuleHandler;
 import net.eldiosantos.brutauth.support.resource.AnotherSimpleResource;
 import net.eldiosantos.brutauth.support.resource.SimpleResource;
@@ -10,7 +9,6 @@ import net.eldiosantos.brutauth.support.rule.TestSimpleBrutauthRule;
 import org.jglue.cdiunit.AdditionalPackages;
 import org.jglue.cdiunit.CdiRunner;
 import org.jglue.cdiunit.InRequestScope;
-import org.jglue.cdiunit.ProducesAlternative;
 import org.jglue.cdiunit.jaxrs.SupportJaxRs;
 import org.junit.After;
 import org.junit.Before;

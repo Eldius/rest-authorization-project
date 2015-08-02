@@ -40,7 +40,7 @@ list and met the requirements to start using it.
 First you will need to implement the interface SimpleBrutauthRule
 like this exemple below:
 
-        public class MySimpleBrutauthrule implements net.eldiosantos.brutauth.rulesSimpleBrutauthRule {
+        public class MySimpleBrutauthrule implements net.eldiosantos.brutauth.rules.SimpleBrutauthRule {
 
             public Boolean canAccess(Long accessLevel) {
                 return true;
