@@ -10,6 +10,8 @@
         <class>net.eldiosantos.brutauth.model.auth.User</class>
         <class>net.eldiosantos.brutauth.model.auth.UserSessionAuth</class>
         <class>net.eldiosantos.brutauth.model.auth.profile.UserProfile</class>
+        <class>net.eldiosantos.brutauth.model.auth.profile.ProfileAttribute</class>
+
         <properties>
             <!-- Connection info -->
             <!-- H2 -->
@@ -19,19 +21,15 @@
             <property name="hibernate.connection.password" value="user" />
             <property name="hibernate.connection.username" value="pass" />
 
-
             <!-- PostgreSQL -->
             <!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/test_database" />-->
             <!--<property name="javax.persistence.jdbc.user" value="test_username" />-->
             <!--<property name="javax.persistence.jdbc.password" value="test_password" />-->
             <!-- <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> -->
-
             <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect" />-->
-            <!-- <property name="eclipselink.logging.level" value="ALL" />-->
-
 
             <!-- MySQL
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/lists_database"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/authorization"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.connection.username" value="root"/>
