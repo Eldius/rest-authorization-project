@@ -30,15 +30,17 @@ public class ProfileAttribute {
         return attributeId.getAttributeName();
     }
 
-    public void setAttributeName(String attributeName) {
+    public ProfileAttribute setAttributeName(String attributeName) {
         this.attributeId.setAttributeName(attributeName);
+        return this;
     }
 
     public String getAttributeValue() {
         return attributeValue;
     }
 
-    public void setAttributeValue(String attributeValue) {
+    public ProfileAttribute setAttributeValue(String attributeValue) {
         this.attributeValue = attributeValue;
+        return this;
     }
 }

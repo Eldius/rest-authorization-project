@@ -14,7 +14,7 @@ import java.util.List;
 public class UserProfile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     @OneToMany(mappedBy = "userProfile")

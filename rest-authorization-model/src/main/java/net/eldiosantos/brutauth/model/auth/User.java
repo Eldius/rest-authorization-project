@@ -23,9 +23,9 @@ public class User implements Serializable {
     private String pass;
     private String salt;
 
-    @OneToOne(orphanRemoval = true)
+    @OneToOne(orphanRemoval = true, cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn()
-    private UserProfile profile;
+    private UserProfile profile = new UserProfile();
 
     public User() {
     }
