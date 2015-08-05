@@ -1,5 +1,7 @@
 # rest-authorization-project #
 
+[![Build Status](https://travis-ci.org/Eldius/rest-authorization-project.svg?branch=master)](https://travis-ci.org/Eldius/rest-authorization-project)
+
 A set of tools to help provide authentication and access control
 to REST (JAX-RS based) applications.
 
